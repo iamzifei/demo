@@ -4,7 +4,7 @@ import { Button, ButtonToolbar, ButtonGroup } from 'react-bootstrap';
 
 import { getRoutePath } from 'CommonUtil/CommonUtil.js';
 
-import MSColumnSorter from '../MSColumnSorter/MSColumnSorter';
+import MSColumnSorter from 'MSColumnSorter/MSColumnSorter';
 
 const columns = [
   {
@@ -107,7 +107,7 @@ export class Dashboard extends React.Component {
         </ButtonToolbar>
         <p style={{ marginTop: 32 }}>Place your sample below this line (Dashboard/Dashboard.js):</p>
         <hr style={{ border: '1px solid black' }} />
-        <MSColumnSorter columns={columns} sortingColumns={sortingColumns} rows={rows} handleSortingColumns={this.handleSortingColumns} />
+        <MSColumnSorter columns={columns} sortingColumns={sortingColumns} rows={rows} />
       </div>
     );
   }

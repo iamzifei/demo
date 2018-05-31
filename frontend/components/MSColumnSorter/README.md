@@ -8,8 +8,7 @@ Usage:
 <MSColumnSorter 
   columns={columns} 
   sortingColumns={sortingColumns} 
-  rows={rows} 
-  handleSortingColumns={this.handleSortingColumns} 
+  rows={rows}
 />
 ```
 

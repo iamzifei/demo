@@ -4,8 +4,7 @@ import * as resolve from 'table-resolver';
 import * as Table from 'reactabular-table';
 import * as sort from 'sortabular';
 import { compose } from 'redux';
-
-import MSGlyphicon from 'MSGlyphicon/MSGlyphicon';
+import MSColumnHeader from 'MSColumnSorter/MSColumnHeader';
 
 export default class MSColumnSorter extends React.Component {
   constructor(props) {
@@ -77,34 +76,6 @@ function sortHeader(sortable, getSortingColumns, columns) {
   return (value, { columnIndex }) => {
     const colProperty = columns[columnIndex].property;
     const sortingCols = getSortingColumns() || [];
-    let className = 'sort';
-    if (sortingCols[colProperty] && sortingCols[colProperty].direction === 'asc') {
-      className = 'sort-asc';
-    } else if (sortingCols[colProperty] && sortingCols[colProperty].direction === 'desc') {
-      className = 'sort-desc';
-    }
-    return (
-      <div style={{ display: 'inline' }}>
-        <span className="value">{value}</span>
-        {React.createElement(
-          MSGlyphicon,
-          sortable(
-            value,
-            {
-              colProperty
-            },
-            {
-              style: { float: 'right' },
-              glyph: className
-            }
-          )
-        )}
-        {sortingCols[colProperty] && (
-          <span className="sort-order" style={{ marginLeft: '0.5em', float: 'right' }}>
-            {sortingCols[colProperty].position + 1}
-          </span>
-        )}
-      </div>
-    );
+    return <MSColumnHeader value={value} colProperty={colProperty} sortingCols={sortingCols} sortable={sortable} />;
   };
 }
