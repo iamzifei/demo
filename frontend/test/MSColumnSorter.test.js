@@ -112,7 +112,6 @@ describe('Test MSColumnSorter', function() {
           columns={columns}
           sortingColumns={sortingColumns}
           rows={rows}
-          handleSortingColumns={this.handleSortingColumns}
         />
       </Provider>
     );
