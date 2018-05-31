@@ -1,13 +1,11 @@
 import React from 'react';
 import { expect } from 'chai';
-import { shallow, mount, render } from 'enzyme';
+import { mount } from 'enzyme';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
+import { routerReducer } from 'react-router-redux';
 import rootReducer from 'Global/RootReducer.js';
-import { validatorRequired, validatorAlphaNumeric } from 'CommonUtil/CommonUtil.js';
-import { LocalForm } from 'react-redux-form';
 import MSColumnSorter from 'MSColumnSorter/MSColumnSorter';
 
 const store = createStore(
@@ -108,11 +106,7 @@ describe('Test MSColumnSorter', function() {
   it('MSColumnSorter is rendered properly', function() {
     const table = mount(
       <Provider store={store}>
-        <MSColumnSorter
-          columns={columns}
-          sortingColumns={sortingColumns}
-          rows={rows}
-        />
+        <MSColumnSorter columns={columns} sortingColumns={sortingColumns} rows={rows} />
       </Provider>
     );
     // check if there 4 sortable column
